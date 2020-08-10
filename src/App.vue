@@ -3,7 +3,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6 offset-md-3 mt-5">
-					<h4 class="text-center mb-3">Country Directory</h4>
+					<h4 class="text-center mb-3">Wejapa Country Directory</h4>
 					<form>
 						<div class="form-group">
 							<label for="">Select Country</label>
