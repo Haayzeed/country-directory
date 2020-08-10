@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import Axios from 'axios'
 import App from './App.vue'
+import vuetify from './plugins/vuetify';
+import '@/assets/css/bootstrap.css'
+// import '@/assets/js/bootstrap.js'
 
 Vue.prototype.$http = Axios
 // Vue.use(Axios)
@@ -9,5 +12,6 @@ Vue.prototype.$http = Axios
 Vue.config.productionTip = false
 
 new Vue({
-  render: h => h(App),
+  vuetify,
+  render: h => h(App)
 }).$mount('#app')

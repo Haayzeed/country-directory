@@ -1,25 +1,44 @@
 <template>
-  <div id="app">
-    <form>
-      <select name="" id="" v-model="selectCountry" @change="changeState()">
-        <option value="">--Select Country--</option>
-          <option  v-for="(country, index) in countries" :key="country.id" :value="index">{{country.name}}</option>
-      </select> <br><br>
-      <select name="" id="" @change="changeCity()" v-model="selectState">
-          <option  v-for="(state, index) in states" :key="state.id" :value="index">{{state.name}}</option>
-      </select> <br><br>
-       <select name="" id="">
-          <option  v-for="(city, index) in cities" :key="city.id" :value="index">{{city.name}}</option>
-      </select>
-    </form>
+	<div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 offset-md-3 mt-5">
+					<h4 class="text-center mb-3">Country Directory</h4>
+					<form>
+						<div class="form-group">
+							<label for="">Select Country</label>
+							<select name="" class="form-control rounded-0 bg-white" v-model="selectCountry" @change="changeState()">
+								<option value="">--Select Country--</option>
+								<option  v-for="(country, index) in countries" :key="country.id" :value="index">{{country.name}}</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="">Select State</label>
+							<select name="" class="form-control rounded-0 bg-white" @change="changeCity()" v-model="selectState">
+								<option value="">--Select State--</option>
+								<option  v-for="(state, index) in states" :key="state.id" :value="index">{{state.name}}</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="">Select City</label>
+							<select name="" class="form-control rounded-0">
+								<option value="">--Select City--</option>
+								<option  v-for="(city, index) in cities" :key="city.id" :value="index">{{city.name}}</option>
+							</select>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
   </div>
 </template>
 
 <script>
 
 export default {
+  name: 'App',
   data(){
-    return{
+     return{
       countries: {},
       states: {},
       selectCountry: '',
@@ -27,7 +46,7 @@ export default {
       cities: {}
     }
   },
-  methods: {
+   methods: {
     changeState(){
       this.states = this.countries.find(
       (tester) => 
@@ -54,17 +73,15 @@ export default {
           }
         })
         .catch((error) => console.error(error));
-  }
-}
-</script>
+  },
+  computed(){
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  }
+};
+</script>
+<style scoped>
+	select option{
+		background: #fff !important;
+		backface-visibility: hidden;
+	}
 </style>
